@@ -1,0 +1,36 @@
+/backgroundfill {
+       newpath
+       0 0 moveto
+       640 0 lineto
+       640 800 lineto
+       0 800 lineto
+       0 0 lineto
+       closepath
+       0 0 0 setrgbcolor fill
+
+
+} def
+
+/drawcircles {
+	%Bottem left circle "red"
+	0 0 400 0 360 arc closepath
+	1 .25 1 setrgbcolor fill
+
+	%Bottem right circle
+	640 0 400 0 360 arc closepath
+	0 .75 1 setrgbcolor fill
+
+	%Top left circle
+	0 800 400 0 360 arc closepath
+	1 1 0 setrgbcolor fill
+
+	%Top right circle
+	640 800 400 0 360 arc closepath
+	0 1 0 setrgbcolor fill
+}def
+
+
+backgroundfill
+drawcircles
+
+showpage
