@@ -2,7 +2,8 @@
 % with the color black. Then will draw a second box that will be
 % filled white that will give us the black boarder around the card.
 /CreateBoarder {
-   %First Box
+
+   %First Box to be filled with black
    newpath
    0 0 moveto
    612 0 rlineto
@@ -13,7 +14,7 @@
    closepath
    stroke
 
-   %Second box
+   %Second box to be filled with white
    newpath
    20 20 moveto 
    572 0 rlineto 
@@ -24,9 +25,31 @@
    fill
    closepath
    stroke
-}def
+} def
 
-/FirstW{
+/Innerboxes {
+	newpath
+	245 20 moveto
+	347 0 rlineto
+	0 379 rlineto
+	-347 0 rlineto
+	0 -379 rlineto
+	closepath
+	0 0 0 setrgbcolor
+	fill
+	
+	newpath
+	20 400 moveto
+	225 0 rlineto
+	0 379 rlineto
+	-225 0 rlineto
+	0 -379 rlineto
+	closepath
+	fill
+	stroke
+} def
+
+/FirstW {
 	%Set color to black for the W's
 	0 0 0 setrgbcolor
 	%Set font for the W's
@@ -35,7 +58,7 @@
 	setfont
 	
 	%First W 
-	200 245 moveto
+	190 253 moveto
         90 rotate
 	(W) show
 	270 rotate 	
@@ -44,14 +67,14 @@
 
 /SecondW {
 	%Set color to black for the W's
-	0 0 0 setrgbcolor
+	1 1 1 setrgbcolor
 	%Set font for the W's
 	/Times-Roman findfont
 	200 scalefont
 	setfont
 	
 	%W	
-	225 350 moveto
+	225 345 moveto
         90 rotate
 	(W) show
         270 rotate	
@@ -61,47 +84,54 @@
 
 /Name {
     /Times_Bold findfont
-    50 scalefont
+    85 scalefont
     setfont
-    0 0 0 setrgbcolor
+    1 1 1 setrgbcolor
 
-    300 150 moveto
+    325 50 moveto
     90 rotate
-    (William Trevor Whitecar) show
+    (William) show
+    270 rotate
+
+    405 75 moveto
+    90 rotate
+    (Trevor) show
+    270 rotate
+
+    485 50 moveto
+    90 rotate
+    (Whitecar) show
     270 rotate
     stroke
 } def
 
-/student {
+/contactinfo {
     /Times_Bold findfont
-    40 scalefont
+    22 scalefont
     setfont
 
-    345 225 moveto
+    345 410 moveto
     0 0 0 setrgbcolor
     90 rotate
-    (Student Extraordinare) show
+    (Title:Computer Science Student) show
     270 rotate
-    stroke
-} def
 
-/email {
-    /Times_Roman findfont
-    30 scalefont
-    setfont
-
-    385 245 moveto
-    0 0 1 setrgbcolor
+    385 410 moveto
+    0 0 0 setrgbcolor
     90 rotate
-    (WWhiteca@MsuDenver.edu) show
+    (Email: WWhiteca@MsuDenver.edu) show
     270 rotate
+
+    420 410 moveto
+    90 rotate
+    (Phone: (928) 600-7177) show
     stroke
 } def
 
 CreateBoarder
+Innerboxes
 SecondW
 FirstW
 Name
-student
-email
+contactinfo
 showpage
