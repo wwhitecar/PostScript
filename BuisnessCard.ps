@@ -1,0 +1,107 @@
+% This function will draw a box that will fill the whole page
+% with the color black. Then will draw a second box that will be
+% filled white that will give us the black boarder around the card.
+/CreateBoarder {
+   %First Box
+   newpath
+   0 0 moveto
+   612 0 rlineto
+   0 792 rlineto
+   -612 0 rlineto
+   0 -792 rlineto
+   fill
+   closepath
+   stroke
+
+   %Second box
+   newpath
+   20 20 moveto 
+   572 0 rlineto 
+   0 752 rlineto 
+   -572 0 rlineto 
+   0 -752 rlineto
+   1 1 1 setrgbcolor  
+   fill
+   closepath
+   stroke
+}def
+
+/FirstW{
+	%Set color to black for the W's
+	0 0 0 setrgbcolor
+	%Set font for the W's
+	/Times-Roman findfont
+	200 scalefont
+	setfont
+	
+	%First W 
+	200 245 moveto
+        90 rotate
+	(W) show
+	270 rotate 	
+	stroke
+} def
+
+/SecondW {
+	%Set color to black for the W's
+	0 0 0 setrgbcolor
+	%Set font for the W's
+	/Times-Roman findfont
+	200 scalefont
+	setfont
+	
+	%W	
+	225 350 moveto
+        90 rotate
+	(W) show
+        270 rotate	
+	stroke
+
+}def
+
+/Name {
+    /Times_Bold findfont
+    50 scalefont
+    setfont
+    0 0 0 setrgbcolor
+
+    300 150 moveto
+    90 rotate
+    (William Trevor Whitecar) show
+    270 rotate
+    stroke
+} def
+
+/student {
+    /Times_Bold findfont
+    40 scalefont
+    setfont
+
+    345 225 moveto
+    0 0 0 setrgbcolor
+    90 rotate
+    (Student Extraordinare) show
+    270 rotate
+    stroke
+} def
+
+/email {
+    /Times_Roman findfont
+    30 scalefont
+    setfont
+
+    385 245 moveto
+    0 0 1 setrgbcolor
+    90 rotate
+    (WWhiteca@MsuDenver.edu) show
+    270 rotate
+    stroke
+} def
+
+CreateBoarder
+SecondW
+FirstW
+Name
+student
+email
+showpage

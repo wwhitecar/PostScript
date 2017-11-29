@@ -1,33 +1,33 @@
 /DoSmilyFace
 {
-	.5 setgray
 
 	%Big Circle
 	150 300 100 0 360 arc closepath
 	1 1 0 setrgbcolor fill
 	stroke
-	%TODO YELLOW FILLER
 
 	%Left Eye
 	100 325 20 0 360 arc closepath
 	0 0 0 setrgbcolor fill
 	stroke
-	%TODO Black filler
 
-	%Left Eye
+	%Right Eye
 	200 325 20 0 360 arc closepath
 	0 0 0 setrgbcolor fill
 	stroke
-	%TODO black filler
 
 	%Mouth
 	150 275 50 180 360 arc closepath
 	1 0 0 setrgbcolor fill
 	stroke
 
-
-		
+	0 setgray
+	70 325 moveto
+	pstack
+	/data exch def
+	{pop data} show 	
 } def
-
+(This is my SmilyFace)
 DoSmilyFace
+showpage
 
