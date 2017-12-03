@@ -29,9 +29,75 @@
 	0 1 0 setrgbcolor fill
 }def
 
-backgroundfill
-50 rotate
-drawcircles
+/shape {
+    gsave
+	   1 1 3 {    
+		   1  0  0  pstack setrgbcolor	   
+		    250 350  translate
+	    	    0 3 260 {
+		    	newpath
+		        dup
+			dup		
+		    	moveto
+		    	rotate
+		    	0 50 rlineto
+		    	50 0 rlineto
+		    	0 -50 rlineto
+		    	-50 0 rlineto
+		    	closepath
+		    	fill
+			stroke
+			} for	
+		} for		
+    grestore
 
+ gsave
+	   1 1 3 {    
+		   0 1 0 setrgbcolor
+		    dup	   
+		    150 450 translate
+	    	    0 3 260 {
+		    	newpath
+		        dup
+			dup		
+		    	moveto
+		    	rotate
+		    	0 50 rlineto
+		    	50 0 rlineto
+		    	0 -50 rlineto
+		    	-50 0 rlineto
+		    	closepath
+		    	fill
+			stroke
+			} for	
+		} for		
+    grestore
+
+ gsave
+	   1 1 3 {    
+		   0 0 1 setrgbcolor	   
+		    350 250  translate
+	    	    0 3 260 {
+		    	newpath
+		        dup
+			dup		
+		    	moveto
+		    	rotate
+		    	0 50 rlineto
+		    	50 0 rlineto
+		    	0 -50 rlineto
+		    	-50 0 rlineto
+		    	closepath
+		    	fill
+			stroke
+			} for	
+		} for		
+    grestore
+} def
+
+backgroundfill
+%50 rotate
+%drawcircles
+shape
 showpage
 
