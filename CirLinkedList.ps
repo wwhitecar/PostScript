@@ -1,0 +1,66 @@
+% This picture will dispaly a cir linked list
+% with some data. 
+
+/DrawName {
+	0 0 moveto
+	/Times-Roman findfont %Set font information
+	20 scalefont
+	setfont
+
+	0 0 0 setrgbcolor
+	(William Trevor Whitecar) show %Push my name to stack
+	stroke
+} def
+
+% This will draw the 2 squares associated with the nodes
+% contained in the linked list. 
+/DrawSquaresForNode {
+	gsave	
+		0 0 0 setrgbcolor
+		0 20 rlineto
+		40 0 rlineto
+		0 -20 rlineto
+		40 0 rlineto
+		0 20 rlineto
+		-40 0 rlineto
+		0 -20 rlineto
+		-40 0 rlineto
+		stroke
+	grestore
+} def
+
+% Function will draw the lines between the nodes to point to the next
+% one in the list.
+/DrawArrow {
+	0 0 1 setrgbcolor
+	newpath
+	100 3 1 roll arc
+	stroke
+} def
+
+% Will draw the head of the arrow to indicate the direction
+% that we are headed in for the linked list.
+/DrawHead {
+	20 20 rlineto
+	-20 -20 rlineto
+	20 -20 rlineto
+	stroke
+} def
+
+DrawName
+newpath
+256 100 moveto
+DrawSquaresForNode
+336 210 270 90
+DrawArrow
+334 310 moveto
+DrawHead
+256 300 moveto
+DrawSquaresForNode
+256 210 90 270
+DrawArrow
+256 110 moveto
+180 rotate
+DrawHead
+180 rotate
+showpage
