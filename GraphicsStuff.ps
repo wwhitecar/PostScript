@@ -30,21 +30,22 @@
 }def
 
 /shape {
-    gsave
-	    250 350  translate
-	    0 3 260 {
+    gsave 
+	    0 2 720 {
 		    dup
-	       	    200 200 moveto
-	       	    1 exch 0 exch 0 exch 3 exch setrgbcolor
-		    rotate
-	    	    0 50 rlineto
-	    	    50 0 rlineto
-	    	    0 -50 rlineto
-	    	    -50 0 rlineto
+		    dup
+		    dup
+	       	    moveto
+	       	    1 exch 0 exch 0 exch 3 exch pstack roll setrgbcolor
+		    10 rotate 
+	    	    0 70 rlineto
+	    	    70 0 rlineto
+	    	    0 -70 rlineto
+	    	    -70 0 rlineto
 	    	    closepath
 	    	    fill
 		    stroke
-} for		
+		} for		
     grestore		  
 } def
 
