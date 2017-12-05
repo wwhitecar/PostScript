@@ -1,57 +1,68 @@
-/backgroundfill {
+% William Trevor Whitecar
+% Gurka - PPL
+% Graphics Display - Rotating Squares
+
+% Basically sets the whole background to back so the squares will 
+% 'pop' when they are drawn on the page.
+
+/FillBackground {
        newpath
-       0 0 moveto
-       640 0 lineto
-       640 800 lineto
+       0 0 moveto	% Move to start point
+       640 0 lineto	
+       640 800 lineto	%Draw a square the size of the page.
        0 800 lineto
        0 0 lineto
        closepath
-       0 0 0 setrgbcolor fill
-
-
+       0 0 0 setrgbcolor  % Set Color to black
+       fill		% Fill the square with black color.
 } def
 
-/drawcircles {
-	%Bottem left circle "purple"
-	0 0 400 0 360 arc closepath
-	1 .25 1 setrgbcolor fill
 
-	%Bottem right circle "blue"
-	640 0 200 0 360 arc closepath
-	0 .75 1 setrgbcolor fill
+% Will save the current graphics and then enter a loop that will loop 
+% from 0 to 700 in increments of 2. Will rotate the position with each loop
+% and will also rotate the color depending on what increment it is on.
 
-	%Top left circle "yellow"
-	150 300 400 0 360 arc closepath
-	1 .5 0 setrgbcolor fill
-
-	%Top right circle "green"
-	640 800 400 0 360 arc closepath
-	0 1 0 setrgbcolor fill
-}def
-
-/shape {
-    gsave 
-	    0 2 720 {
+/Squares { 
+	gsave
+	    0 2 700 {
+		    dup			% Duplicate top of stack twice
 		    dup
-		    dup
-		    dup
-	       	    moveto
-	       	    1 exch 0 exch 0 exch 3 exch pstack roll setrgbcolor
-		    10 rotate 
-	    	    0 70 rlineto
-	    	    70 0 rlineto
+	       	    moveto		% Moveto based on loop interation
+	       	    1 exch 0 exch 0 exch % Set rgb colors pushed and setup 
+		    			 %stack to roll
+		    3 exch roll 	 % Roll the stack to get color change
+		    setrgbcolor		% Set the color
+		    10  rotate 		%Rotate the squares
+	    	    0 70 rlineto	
+	    	    70 0 rlineto	%Draw the square
 	    	    0 -70 rlineto
 	    	    -70 0 rlineto
 	    	    closepath
-	    	    fill
+	    	    fill		% Fill square with color
 		    stroke
-		} for		
-    grestore		  
+		} for	
+	grestore		
 } def
 
-backgroundfill
-%50 rotate
-%drawcircles
-shape
+
+% Write my name in the bottem corner of the page.
+
+/Name {
+	newpath
+	400 0 moveto		% Move to proper place to write name
+	
+	/Times-Roman findfont	% Set font information
+	20 scalefont
+	setfont
+	1 1 1 setrgbcolor	% Set color to white
+	(William Trevor Whitecar) show	% Push name to stack and show it
+} def
+
+% Main calls that will fill the background in black, draw the squares, and
+% then write my name in the bottem right corner.
+
+FillBackground
+Squares
+Name
 showpage
 
