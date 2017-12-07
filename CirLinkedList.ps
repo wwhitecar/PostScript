@@ -3,17 +3,25 @@
 % This picture will dispaly a cir linked list
 % that contains chars to make up "Hello World". 
 
-% Will draw my name in the lower right hand corner.
-
-/DrawName {
-	0 0 moveto
-	/Times-Roman findfont %Set font information
-	20 scalefont
-	setfont
-
-	0 0 0 setrgbcolor
-	(William Trevor Whitecar) show %Push my name to stack
-	stroke
+% Will draw my name and name of the data structer 
+% slanted in the top left corner of the page.
+% Hopeuflly filling some of the whitespace that is up there.
+/Name&Title {
+	gsave
+		20 550 moveto		
+		45 rotate
+		/Times-Roman findfont %Set font information
+		30 scalefont
+		setfont
+		
+		0 0 0 setrgbcolor
+		(William Trevor Whitecar) show %Push my name to stack
+		-45 rotate
+		60 550 moveto
+		45 rotate
+		(Cir Linked List) show
+		stroke
+	grestore
 } def
 
 % This will draw the 2 squares associated with the nodes
@@ -36,27 +44,94 @@
 	} for
 } def
 
-% This function will draw the lines bettween the nodes
+% This function will draw the lines between the nodes
 % of the linked list.
 /DrawArrowToNextNode {
+	% Set the color to green for hte arrows
 	0 1 0 setrgbcolor
+
+	% Will properly draw arrows in the right location 
+	% that will point to the next node in the list.
 	0 1 9 {
 		dup
-		dup
-	       	60 mul exch
-		50 mul exch
+	       	63 mul 53 add exch
+		50 mul 80 add exch
 		newpath
 		moveto
-		0 32 rlineto
+		0 28 rlineto
 		5 -5 rlineto
 		-5 5 rlineto
 		-5 -5 rlineto
-		stroke
+       		stroke		
 	} for
+
+	% The following will draw the semi circle from the tail node 
+	% back to the head.
+	newpath
+	0 0 1 setrgbcolor
+	100 540 500 270 12.6 arc
+	stroke
+
+	% Will draw the tip of the arrow to point at the head node
+	0 0 1 setrgbcolor
+	newpath
+	100 40 moveto
+	10 10 rlineto
+	-10 -10 rlineto
+	10 -10 rlineto
+	stroke
 } def
 
+% This will add "Hello World" into the linked list in the 
+% proper locations.
+/HelloWorld {
+	% Setup stack to place the letters.
+	(d)(l)(r)(o)(W)( )(o)(l)(l)(e)(H)
+
+	% Set the font we would like to use.
+	/Times_Roman findfont
+	20 scalefont
+	.824 .329 0 setrgbcolor
+	setfont
+	0 1 10 {
+		dup
+
+		% Math to move to the right location everytime
+		63.5 mul 27 add exch
+		50 mul 37 add exch
+		moveto
+		show
+	} for
+	stroke
+} def
+
+% Wil properly place the element that the node is pointing at in the
+% linked list.
+/NextNode {
+	% Place the right numbers on the stack in the right order.
+	(0)(10)(9)(8)(7)(6)(5)(4)(3)(2)(1)
+
+	% Set the font we would like to use for the numbers
+	/Times_Roman findfont
+	20 scalefont
+	setfont
+	
+	.133 .6 .329 setrgbcolor
+	0 1 10 {
+		dup
+
+		% Math to move to the right location everytime
+		63.5 mul 27 add exch
+		50 mul 75 add exch
+		moveto
+		show
+	} for
+	stroke
+} def
 
 DrawSquaresForNode
 DrawArrowToNextNode
-DrawName
+HelloWorld
+NextNode
+Name&Title
 showpage
