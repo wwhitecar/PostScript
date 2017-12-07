@@ -1,5 +1,9 @@
+% William Trevor Whitecar
+% Gurka - PPL
 % This picture will dispaly a cir linked list
-% with some data. 
+% that contains chars to make up "Hello World". 
+
+% Will draw my name in the lower right hand corner.
 
 /DrawName {
 	0 0 moveto
@@ -15,52 +19,44 @@
 % This will draw the 2 squares associated with the nodes
 % contained in the linked list. 
 /DrawSquaresForNode {
-	gsave	
-		0 0 0 setrgbcolor
-		0 20 rlineto
+	1 0 0 setrgbcolor
+	20 50 520 {
+		dup 1.25 mul 
+		newpath
+		moveto
+		0 30 rlineto
 		40 0 rlineto
-		0 -20 rlineto
+		0 -30 rlineto
 		40 0 rlineto
-		0 20 rlineto
+		0 30 rlineto
 		-40 0 rlineto
-		0 -20 rlineto
+		0 -30 rlineto
 		-40 0 rlineto
 		stroke
-	grestore
+	} for
 } def
 
-% Function will draw the lines between the nodes to point to the next
-% one in the list.
-/DrawArrow {
-	0 0 1 setrgbcolor
-	newpath
-	100 3 1 roll arc
-	stroke
+% This function will draw the lines bettween the nodes
+% of the linked list.
+/DrawArrowToNextNode {
+	0 1 0 setrgbcolor
+	0 1 9 {
+		dup
+		dup
+	       	60 mul exch
+		50 mul exch
+		newpath
+		moveto
+		0 32 rlineto
+		5 -5 rlineto
+		-5 5 rlineto
+		-5 -5 rlineto
+		stroke
+	} for
 } def
 
-% Will draw the head of the arrow to indicate the direction
-% that we are headed in for the linked list.
-/DrawHead {
-	20 20 rlineto
-	-20 -20 rlineto
-	20 -20 rlineto
-	stroke
-} def
 
+DrawSquaresForNode
+DrawArrowToNextNode
 DrawName
-newpath
-256 100 moveto
-DrawSquaresForNode
-336 210 270 90
-DrawArrow
-334 310 moveto
-DrawHead
-256 300 moveto
-DrawSquaresForNode
-256 210 90 270
-DrawArrow
-256 110 moveto
-180 rotate
-DrawHead
-180 rotate
 showpage
