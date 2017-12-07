@@ -8,15 +8,21 @@
 % Hopeuflly filling some of the whitespace that is up there.
 /Name&Title {
 	gsave
+		% Set up the posisiton and font to 
+		% prepair to write my name.
 		20 550 moveto		
 		45 rotate
 		/Times-Roman findfont %Set font information
 		30 scalefont
 		setfont
 		
+		% Write my name in black.
 		0 0 0 setrgbcolor
-		(William Trevor Whitecar) show %Push my name to stack
+		(William Trevor Whitecar) show
 		-45 rotate
+
+		% Write the name of the data structer to the
+		% page.
 		60 550 moveto
 		45 rotate
 		(Cir Linked List) show
@@ -27,11 +33,25 @@
 % This will draw the 2 squares associated with the nodes
 % contained in the linked list. 
 /DrawSquaresForNode {
+
+	% Set color to red
 	1 0 0 setrgbcolor
+
+	% This loop with draw all of the boxes accross
+	% the page.
 	20 50 520 {
-		dup 1.25 mul 
+		% Uses the top of the stack to correctly
+		% move the box accross the page.
+		dup 
+
+		% Increase the rate the box rises 
+		% compared to the x value
+		1.25 mul
+
 		newpath
 		moveto
+
+		% Draw the two boxes
 		0 30 rlineto
 		40 0 rlineto
 		0 -30 rlineto
@@ -54,10 +74,17 @@
 	% that will point to the next node in the list.
 	0 1 9 {
 		dup
-	       	63 mul 53 add exch
+		% Manipulat the stack correctly for each 
+		% iteration.
+		63 mul 53 add exch
 		50 mul 80 add exch
 		newpath
+
+		% Move to the path that the math has
+		% come up with.
 		moveto
+
+		% Draw the arrow to the next box.
 		0 28 rlineto
 		5 -5 rlineto
 		-5 5 rlineto
@@ -72,7 +99,8 @@
 	100 540 500 270 12.6 arc
 	stroke
 
-	% Will draw the tip of the arrow to point at the head node
+	% Will draw the tip of the arrow to point 
+	% at the head node
 	0 0 1 setrgbcolor
 	newpath
 	100 40 moveto
@@ -96,7 +124,8 @@
 	0 1 10 {
 		dup
 
-		% Math to move to the right location everytime
+		% Math to move to the right location 
+		% everytime
 		63.5 mul 27 add exch
 		50 mul 37 add exch
 		moveto
@@ -120,7 +149,8 @@
 	0 1 10 {
 		dup
 
-		% Math to move to the right location everytime
+		% Math to move to the right location 
+		% everytime
 		63.5 mul 27 add exch
 		50 mul 75 add exch
 		moveto
@@ -129,6 +159,10 @@
 	stroke
 } def
 
+% The Main Method that will display all of the different of
+% the picture, first by drawing the boxes and arrows, then
+% populating the data into the box, finally labeling the
+% picture with my name and name of the structer.
 DrawSquaresForNode
 DrawArrowToNextNode
 HelloWorld
