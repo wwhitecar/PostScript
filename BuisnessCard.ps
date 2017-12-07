@@ -27,6 +27,8 @@
    stroke
 } def
 
+% This function lays on top of the white box backgrond to
+% create the boxes for the alternating white/black boxes.
 /Innerboxes {
 	newpath
 	245 20 moveto
@@ -49,6 +51,8 @@
 	stroke
 } def
 
+% This will write the first large W at the top of that card in 
+% the white box with a small amount of overlap into the black.
 /FirstW {
 	%Set color to black for the W's
 	0 0 0 setrgbcolor
@@ -65,6 +69,8 @@
 	stroke
 } def
 
+% Writes the second white W at the top of the page with
+% a small amount of overlap into the white.
 /SecondW {
 	%Set color to black for the W's
 	1 1 1 setrgbcolor
@@ -82,6 +88,8 @@
 
 }def
 
+% This properly aligns my name on the lower left side of the page
+% and tries to align it correctly.
 /Name {
     /Times_Bold findfont
     85 scalefont
@@ -105,6 +113,9 @@
     stroke
 } def
 
+% Writes the contact information and title for myself in the 
+% bottem right hand corner with proper alignment and color scheme.
+% Will also properly align the 'quote' bellow that information.
 /contactinfo {
     /Times_Bold findfont
     22 scalefont
@@ -145,6 +156,9 @@
     stroke
 } def
 
+% Main calls to display the graphics of the page. First by
+% drawing and coloring all the boxes in the background and then
+% writing the name and contact information on top of that.
 CreateBoarder
 Innerboxes
 SecondW
