@@ -1,0 +1,95 @@
+% This will hopefully end up looking like a christmas tree
+% with a fire place next to it. Everything will be 
+% rotated 90 degrees to use more of ht whitespace that 
+% on the page.
+
+%Creates a black background for better viewing.
+/Background {
+	newpath
+	0 0 moveto
+	640 0 lineto
+	640 800 lineto
+	0 800 lineto
+	closepath
+	0 0 0 setrgbcolor
+	fill
+	stroke
+} def
+
+% Draws the tree and base of the tree. 
+/Tree {
+	% Draw the base of the tree
+	newpath
+	250 60 moveto
+	.4 .2 0 setrgbcolor
+	0 80 rlineto
+	80 0 rlineto
+	0 -80 rlineto
+	closepath
+	fill
+	stroke
+
+	% Will draw the triangle representing the tree.
+	newpath
+	50 140 moveto
+	0 .2 0 setrgbcolor
+	480 0 rlineto
+	-240 500 rlineto
+	closepath
+	fill
+	stroke
+} def
+
+% Draw the star on top of the tree.
+/Star {
+	1 1 0 setrgbcolor
+	newpath
+	285 650 moveto
+	0 1 5 {
+		gsave
+			72 mul rotate
+			50 20 rlineto
+			-55 10 rlineto
+			closepath
+			fill
+		grestore
+	} for
+	stroke
+} def
+
+% Draw a handful of circle ornaments on the tree.
+/Ornaments {
+	0 1 0 setrgbcolor
+	200 300 DrawCircles
+	fill
+	stroke
+} def
+
+% This will draw the circle for the ornaments
+% function instead of me writing arc a bunch of times.
+/DrawCircles {
+	20 0 360 arc
+	closepath
+} def
+ 
+% Draw the skirt under the tree.
+/Skirt {
+	.75 0 0 setrgbcolor
+ 	% Draw the basic shape.
+	250 60 moveto
+	80 0 rlineto
+	180 -60 rlineto
+	-440 0 rlineto
+	closepath
+	fill
+	stroke
+} def
+
+
+% Main Method to display the pager
+Background
+Tree
+Ornaments
+Star
+Skirt
+showpage
